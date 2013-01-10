@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 ''' Super simple way to add public keys to metadata '''
 
 import json
