@@ -5,6 +5,7 @@ import json
 import sys
 
 users_added = 0
+users = []
 
 try:
         f = open('jumpbox.json')
@@ -22,9 +23,11 @@ while True:
         public_key = raw_input("Public Key : ")
         newuser = { username : { 'sudo_access' : sudo_access , 'ssh_keys' : [ public_key ] }}
         metadata['traits']['users']['table'].update(newuser)
+        users.append(newuser)
         users_added += 1
 
 if users_added > 0 :
+        print users
         o = open('jumpbox.json.new','w')
         o.write(json.dumps(metadata,sort_keys=True, indent=4, separators=(',',': ')))
         print "Users added: %s" % users_added
